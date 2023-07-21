@@ -15,8 +15,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        fetch-depth: 0  # add this line
-
+        fetch-depth: 0
+        token: ${{ secrets.PAT }}  # use the PAT
 
     - name: Generate directory list and update README
       run: |
@@ -32,4 +32,4 @@ jobs:
         git config --local user.name "isGeekCode"
         git add -A
         git commit -m "Update README with directory list" -a || exit 0
-        git push https://${{ secrets.PAT }}@github.com/isGeekCode/githubActionTutorial.git
+        git push
