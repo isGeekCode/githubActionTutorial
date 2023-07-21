@@ -22,7 +22,7 @@ jobs:
       run: |
         echo "# Directory List" > README.md
         for d in */; do
-          echo "- $d" >> README.md
+          echo "- ${d%/}" >> README.md  # Remove trailing slash
         done
 
     - name: Commit and push if changed
