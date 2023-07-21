@@ -20,7 +20,7 @@ jobs:
     # 두 번째 단계에서는 디렉토리 목록을 생성하고 README 파일을 업데이트합니다.
     - name: Generate directory list and update README
       run: |
-        # README 파일을 생성하고 첫 번째 줄에 '# Directory List'를 씁니다.
+    # README 파일을 생성하고 첫 번째 줄에 '# Directory List'를 씁니다.
         echo "# Directory List" > README.md
         # 현재 디렉토리의 모든 하위 디렉토리에 대해 반복합니다.
         for d in */; do
@@ -31,7 +31,7 @@ jobs:
     # 세 번째 단계에서는 변경 사항을 커밋하고 푸시합니다.
     - name: Commit and push if changed
       run: |
-        # 변경 사항이 있는지 확인합니다.
+    # 변경 사항이 있는지 확인합니다.
         git diff
         # Git 사용자 이메일과 이름을 설정합니다.
         git config --local user.email "ptuguitar@naver.com"
