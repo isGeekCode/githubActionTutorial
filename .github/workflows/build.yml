@@ -18,6 +18,10 @@ jobs:
         fetch-depth: 0
         token: ${{ secrets.PAT }}  # use the PAT
 
+    - name: Pull latest changes
+      run: |
+        git pull
+
     - name: Generate directory list and update README
       run: |
         echo "# Directory List" > README.md
