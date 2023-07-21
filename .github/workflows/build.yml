@@ -1,16 +1,31 @@
-name: CI
+name: Update README
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  build:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Generate directory list and update README
+      run: |
+        echo "# Directory List" > README.md
+        for d in */; do
+          echo "- $d" >> README.md
+        done
+
+    - name: Commit and push if changed
+      run: |
+        git diff
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "Update README with directory list" -a || exit 0
+        git push
+
 
 # 워크플로우의 이름을 설정하는 부분. 이 이름은 GitHub Actions UI에서 보여진다.
 #name: CI
