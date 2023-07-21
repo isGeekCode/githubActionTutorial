@@ -1,0 +1,46 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+# 워크플로우의 이름을 설정하는 부분. 이 이름은 GitHub Actions UI에서 보여진다.
+#name: CI
+
+# 이 워크플로우가 어떤 이벤트에 의해 실행될지를 정의하는 부분.
+# 여기서는 push 이벤트나 pull_request 이벤트가 발생할 때마다 이 워크플로우가 실행되도록 설정하였습니다.
+#on: [push, pull_request]
+
+# 여기에서 워크플로우의 작업들을 정의하는 부분.
+#jobs:
+  
+#   이는 "build"라는 이름의 작업을 정의하는 부분.
+#  build:
+    
+#     이 작업은 Ubuntu의 최신 버전 가상 환경에서 실행됩니다.
+#    runs-on: ubuntu-latest
+
+#     작업에 포함된 단계들을 정의하는 부분.
+#    steps:
+      
+#     uses는 특정 깃허브 액션을 사용하겠다고 지정하는 부분.
+#     첫 번째 단계에서는 actions/checkout@v2 액션을 사용하여 워크플로우가 실행되는 가상 환경에 레포지토리를 체크아웃합니다.
+#    - uses: actions/checkout@v2
+
+#     두 번째 단계의 이름을 정의하는 부분. 이 이름은 GitHub Actions UI에서 보여진다.
+#    - name: Run a one-line script
+      
+      
+#       run은 실행할 커맨드를 지정하는 부분.
+#       이 단계에서는 'echo Hello, world!'라는 명령어를 실행한다. 이 명령어는 터미널에 'Hello, world!'를 출력한다.
+#      run: echo Hello, world!
+
+
